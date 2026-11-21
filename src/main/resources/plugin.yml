@@ -1,0 +1,218 @@
+name: PigVsCheese
+version: 1.15.0
+main: dev.pigcheese.PigCheesePlugin
+api-version: '1.21.11'
+description: "Pig vs Cheese team PvP with tiers, kill points, shop and team auction"
+commands:
+  teampig:
+    description: "Put a player on Team Pig"
+    usage: "/teampig <player>"
+    permission: pigcheese.admin
+  teamcheese:
+    description: "Put a player on Team Cheese"
+    usage: "/teamcheese <player>"
+    permission: pigcheese.admin
+  setteamspawn:
+    description: "Set the spawn point for a team at your location"
+    usage: "/setteamspawn <pig|cheese>"
+    permission: pigcheese.admin
+  tierup:
+    description: "Move a player up one tier"
+    usage: "/tierup <player>"
+    permission: pigcheese.admin
+  tierdown:
+    description: "Move a player down one tier"
+    usage: "/tierdown <player>"
+    permission: pigcheese.admin
+  settier:
+    description: "Set a player's tier (1-6)"
+    usage: "/settier <player> <1-6>"
+    permission: pigcheese.admin
+  guide:
+    description: "How to play"
+    usage: "/guide"
+    aliases: [rules]
+  shop:
+    description: "Kill point shop (add words to search)"
+    usage: "/shop [search words]"
+  ah:
+    description: "Team auction, or the global auction for everyone"
+    usage: "/ah | /ah global | /ah sell <price> [global]"
+    aliases: [auction]
+  points:
+    description: "Show your kill points"
+    usage: "/points"
+  lockteam:
+    description: "Permanently put a player on a team"
+    usage: "/lockteam <player> <pig|cheese>"
+    permission: pigcheese.admin
+  unlockteam:
+    description: "Remove a player's permanent team"
+    usage: "/unlockteam <player>"
+    permission: pigcheese.admin
+  givepoints:
+    description: "Add (or subtract) kill points"
+    usage: "/givepoints <player> <amount>"
+    permission: pigcheese.admin
+  setpoints:
+    description: "Set kill points"
+    usage: "/setpoints <player> <amount>"
+    permission: pigcheese.admin
+  resetplayer:
+    description: "Reset a player's tier to 1"
+    usage: "/resetplayer <player>"
+    permission: pigcheese.admin
+  clearcombat:
+    description: "Clear a player's combat timer"
+    usage: "/clearcombat <player>"
+    permission: pigcheese.admin
+  freeze:
+    description: "Freeze a player"
+    usage: "/freeze <player>"
+    permission: pigcheese.admin
+  unfreeze:
+    description: "Unfreeze a player"
+    usage: "/unfreeze <player>"
+    permission: pigcheese.admin
+  mute:
+    description: "Mute a player"
+    usage: "/mute <player> [minutes]"
+    permission: pigcheese.admin
+  unmute:
+    description: "Unmute a player"
+    usage: "/unmute <player>"
+    permission: pigcheese.admin
+  invsee:
+    description: "Open a player's inventory"
+    usage: "/invsee <player>"
+    permission: pigcheese.admin
+  playerinfo:
+    description: "Show a player's saved info"
+    usage: "/playerinfo <player>"
+    permission: pigcheese.admin
+  spawn:
+    description: "Teleport to your team's home"
+    usage: "/spawn"
+  tpa:
+    description: "Ask a teammate to let you teleport to them"
+    usage: "/tpa <teammate>"
+  tpaccept:
+    description: "Accept a teleport request"
+    usage: "/tpaccept"
+  tpdeny:
+    description: "Deny a teleport request"
+    usage: "/tpdeny"
+  createwaypoint:
+    description: "Save your location as a waypoint"
+    usage: "/createwaypoint <name>"
+  waypoints:
+    description: "Open your waypoints menu"
+    usage: "/waypoints"
+  managewaypoint:
+    description: "Move, rename or delete waypoints"
+    usage: "/managewaypoint [rename <old> <new> | delete <name>]"
+  duel:
+    description: "Challenge a player to a duel (PvP requires one) - /duel opens a player menu"
+    usage: "/duel <player> | /duel end"
+  duelaccept:
+    description: "Accept a duel request"
+    usage: "/duelaccept"
+  dueldeny:
+    description: "Decline a duel request"
+    usage: "/dueldeny"
+  testnewplayer:
+    description: "TEST: force the required first-join screen (resets nothing)"
+    usage: "/testnewplayer [player]"
+    permission: pigcheese.admin
+  testguide:
+    description: "TEST: preview the welcome screen"
+    usage: "/testguide [player]"
+    permission: pigcheese.admin
+  testcombat:
+    description: "TEST: put a player in combat for 20s"
+    usage: "/testcombat [player]"
+    permission: pigcheese.admin
+  testpunish:
+    description: "TEST: apply the combat punishment now"
+    usage: "/testpunish [player]"
+    permission: pigcheese.admin
+  testprotect:
+    description: "TEST: give 30s spawn protection"
+    usage: "/testprotect [player]"
+    permission: pigcheese.admin
+  testkill:
+    description: "TEST: give a fake kill (victim tier 1-6)"
+    usage: "/testkill [player] [victimTier]"
+    permission: pigcheese.admin
+  testgear:
+    description: "TEST: refresh gear for the player's tier"
+    usage: "/testgear [player]"
+    permission: pigcheese.admin
+  testbalance:
+    description: "TEST: show team counts and where the next joiner goes"
+    usage: "/testbalance"
+    permission: pigcheese.admin
+  stats:
+    description: "See your stats (or another player's)"
+    usage: "/stats [player]"
+    aliases: [stat, profile]
+  playtime:
+    description: "Show your playtime"
+    usage: "/playtime [player]"
+  setprice:
+    description: "Change the shop price of an item (points per item)"
+    usage: "/setprice <item|hand> <price> | /setprice list"
+    permission: pigcheese.admin
+  resetprice:
+    description: "Put an item back to its default shop price"
+    usage: "/resetprice <item|hand>"
+    permission: pigcheese.admin
+  settierall:
+    description: "Set every player's tier the next time they log in"
+    usage: "/settierall <1-6> | /settierall cancel"
+    permission: pigcheese.admin
+  event:
+    description: "Start, stop or check timed special events"
+    usage: "/event start <chaos|randomtiers|randomenchants|doublepoints> <time> [ffa|teams] | /event stop | /event status | /event list"
+    permission: pigcheese.admin
+  eventwaypoints:
+    description: "Free teleports to spots operators set (only work during events)"
+    usage: "/eventwaypoints"
+    aliases: [ewp, eventwp]
+  seteventwaypoint:
+    description: "Set an event waypoint at your location"
+    usage: "/seteventwaypoint <name>"
+    permission: pigcheese.admin
+  removeeventwaypoint:
+    description: "Remove an event waypoint"
+    usage: "/removeeventwaypoint <name>"
+    permission: pigcheese.admin
+  givebanker:
+    description: "Give a banker block"
+    usage: "/givebanker [player]"
+    permission: pigcheese.admin
+  pack:
+    description: "Re-send the server resource pack (Banker Block texture)"
+    usage: "/pack"
+  setpack:
+    description: "Set the resource pack url and sha1, or turn it off"
+    usage: "/setpack <url> <sha1> | /setpack off"
+    permission: pigcheese.admin
+  duelmenu:
+    description: "Open the menu of players to duel"
+    usage: "/duelmenu"
+  setbase:
+    description: "Mark a team's base (enemies inside it can fight without a duel)"
+    usage: "/setbase <pig|cheese> <radius>"
+    permission: pigcheese.admin
+  removebase:
+    description: "Remove a team's base"
+    usage: "/removebase <pig|cheese>"
+    permission: pigcheese.admin
+  basepvp:
+    description: "Turn base raiding PvP on or off"
+    usage: "/basepvp on|off"
+    permission: pigcheese.admin
+permissions:
+  pigcheese.admin:
+    default: op
